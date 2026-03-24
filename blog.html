@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Lila's Candles</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="admin-ribbon" class="admin-ribbon hidden">
+    🔑 Admin Mode active — <a href="admin.html">Dashboard</a> &nbsp;·&nbsp; <a href="#" id="admin-logout-btn">Sign Out</a>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">🕯️ Lila's <span>Candles</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="cart.html" class="nav-cart-btn">🛒 <span class="cart-badge hidden">0</span></a>
+        <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html">About</a>
+      <a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>The Journal</h1>
+      <p>Stories, guides, and slow living inspiration from Lila's kitchen.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+
+      <!-- FEATURED POST -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);margin-bottom:2.5rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr">
+          <div style="background:linear-gradient(135deg,var(--sage-500) 0%,var(--sage-300) 100%);display:flex;align-items:center;justify-content:center;font-size:6rem;min-height:280px;">🌿</div>
+          <div style="padding:2.25rem">
+            <span class="blog-tag">Featured</span>
+            <h2 style="font-size:1.5rem;margin-bottom:.75rem;line-height:1.3"><a href="blog-post.html" style="color:var(--brown)">Why I Started Making Vegan Candles (And Why It Changed Everything)</a></h2>
+            <p style="font-size:.9rem;color:var(--brown-mid);line-height:1.75;margin-bottom:1.25rem">Five years ago I was standing in a shop staring at the back of a candle label, trying to figure out what "fragrance" actually meant. What followed was a deep dive into the candle industry that I never quite came back from. Here's the full story.</p>
+            <div class="blog-meta" style="margin-bottom:1.25rem">March 10, 2026 · 8 min read</div>
+            <a href="blog-post.html" class="btn btn-primary btn-sm">Read the story →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST GRID -->
+      <div class="grid-3">
+
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#e8d050 0%,#f8f0a0 100%)">☀️</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Candle Care</span>
+            <div class="blog-card-title"><a href="blog-post-2.html" style="color:var(--brown)">How to Get the Most Out of Your Candle</a></div>
+            <p class="blog-card-excerpt">The first burn matters more than any other. Here's how to create the perfect melt pool, trim your wick, and keep your candle burning beautifully for its entire life.</p>
+            <div class="blog-meta">Feb 24, 2026 · 5 min read</div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#bcd4b8 0%,#f2f6f1 100%)">🌱</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Ingredients</span>
+            <div class="blog-card-title"><a href="#" style="color:var(--brown)">Soy Wax vs Paraffin: What's Really in Your Candle?</a></div>
+            <p class="blog-card-excerpt">Most mass-market candles are made with paraffin — a by-product of petroleum refining. I break down what that actually means, and why I only use natural waxes.</p>
+            <div class="blog-meta">Feb 8, 2026 · 6 min read</div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#d4a0a0 0%,#f5e8e8 100%)">🌹</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Behind the Scenes</span>
+            <div class="blog-card-title"><a href="#" style="color:var(--brown)">Spring Collection: How I Choose Each Season's Scents</a></div>
+            <p class="blog-card-excerpt">Every season I spend weeks smelling, blending, and questioning my life choices until I land on a collection that feels right. Here's a peek at my process for spring.</p>
+            <div class="blog-meta">Jan 28, 2026 · 4 min read</div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#c4956a 0%,#f5e0c0 100%)">♻️</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Sustainability</span>
+            <div class="blog-card-title"><a href="#" style="color:var(--brown)">What Happens to Your Candle Jar After the Wax Is Gone?</a></div>
+            <p class="blog-card-excerpt">Those amber glass jars are made to last. I designed them with second life in mind — here are some of my favourite ways customers have reused theirs.</p>
+            <div class="blog-meta">Jan 12, 2026 · 3 min read</div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#5e7a58 0%,#b8d4b0 100%)">🧪</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Ingredients</span>
+            <div class="blog-card-title"><a href="#" style="color:var(--brown)">Essential Oils vs Fragrance Oils: The Real Difference</a></div>
+            <p class="blog-card-excerpt">Many "natural" candles still use synthetic fragrance oils. Here's how to read a label, what to look out for, and why I only use pure essential oils in every candle.</p>
+            <div class="blog-meta">Dec 30, 2025 · 7 min read</div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#3a4e3d 0%,#7d9b76 100%)">🎁</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Gift Guide</span>
+            <div class="blog-card-title"><a href="#" style="color:var(--brown)">The Perfect Candle for Every Personality (Gift Guide 2026)</a></div>
+            <p class="blog-card-excerpt">Struggling to find the right scent for someone? I've matched each candle in the collection to a personality type to make gifting easy.</p>
+            <div class="blog-meta">Dec 15, 2025 · 4 min read</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-band">
+    <div class="container text-center">
+      <h2>Get new posts in your inbox</h2>
+      <p>Plus 10% off your first order when you join the slow living community.</p>
+      <form class="newsletter-form" style="margin:0 auto;">
+        <input type="email" placeholder="your@email.com" required />
+        <button type="submit" class="btn btn-terra">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">🕯️ Lila's Candles</div>
+          <p class="footer-tagline">Hand-poured vegan candles made with love in small batches.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="shop.html">All Candles</a></li>
+            <li><a href="cart.html">Your Cart</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Info</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lila's Candles.</span>
+        <span>Made with 🌿</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

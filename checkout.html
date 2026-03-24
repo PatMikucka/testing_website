@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Lila's Candles</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="admin-ribbon" class="admin-ribbon hidden">
+    🔑 Admin Mode active — <a href="admin.html">Dashboard</a> &nbsp;·&nbsp; <a href="#" id="admin-logout-btn">Sign Out</a>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">🕯️ Lila's <span>Candles</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="cart.html" class="nav-cart-btn">🛒 <span class="cart-badge hidden">0</span></a>
+        <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html">About</a>
+      <a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Checkout</h1>
+      <p>Secure checkout · Plastic-free packaging · Free shipping over £50</p>
+    </div>
+  </div>
+
+  <!-- SUCCESS STATE -->
+  <div id="order-success" style="display:none" class="section">
+    <div class="container text-center" style="max-width:520px;margin:0 auto">
+      <div style="font-size:4rem;margin-bottom:1rem">🌿</div>
+      <h2 style="margin-bottom:.75rem">Thank you for your order!</h2>
+      <p style="font-size:1rem;line-height:1.75;margin-bottom:2rem">Your candles are being lovingly packed by Lila. You'll receive a confirmation email shortly. We hope they bring warmth and calm to your space.</p>
+      <a href="shop.html" class="btn btn-primary btn-lg">Keep Shopping</a>
+    </div>
+  </div>
+
+  <div id="checkout-main" class="section" style="padding-top:0">
+    <div class="container">
+      <div class="grid-2" style="gap:2rem;align-items:start">
+
+        <!-- CHECKOUT FORM -->
+        <div>
+          <form id="checkout-form" novalidate>
+
+            <!-- CONTACT -->
+            <div class="card mb-2">
+              <div class="card-title">Contact Information</div>
+              <div class="form-group">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+              </div>
+              <div class="form-group mt-2">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="subscribe" value="yes" checked />
+                  Email me with news and offers
+                </label>
+              </div>
+            </div>
+
+            <!-- SHIPPING ADDRESS -->
+            <div class="card mb-2">
+              <div class="card-title">Shipping Address</div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first_name">First Name <span class="req">*</span></label>
+                  <input type="text" id="first_name" name="first_name" placeholder="Ada" autocomplete="given-name" required />
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Last Name <span class="req">*</span></label>
+                  <input type="text" id="last_name" name="last_name" placeholder="Lovelace" autocomplete="family-name" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="address1">Address <span class="req">*</span></label>
+                <input type="text" id="address1" name="address1" placeholder="123 Elm Street" autocomplete="address-line1" required />
+              </div>
+              <div class="form-group">
+                <label for="address2">Apartment, suite, etc.</label>
+                <input type="text" id="address2" name="address2" placeholder="Apt 4B" autocomplete="address-line2" />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="city">City <span class="req">*</span></label>
+                  <input type="text" id="city" name="city" placeholder="London" autocomplete="address-level2" required />
+                </div>
+                <div class="form-group">
+                  <label for="postcode">Postcode <span class="req">*</span></label>
+                  <input type="text" id="postcode" name="postcode" placeholder="SW1A 1AA" autocomplete="postal-code" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="country">Country <span class="req">*</span></label>
+                <select id="country" name="country" autocomplete="country" required>
+                  <option value="">— Select country —</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="AU">Australia</option>
+                  <option value="DE">Germany</option>
+                  <option value="FR">France</option>
+                  <option value="IE">Ireland</option>
+                  <option value="NL">Netherlands</option>
+                  <option value="OTHER">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- PAYMENT -->
+            <div class="card mb-2">
+              <div class="card-title">Payment</div>
+              <div style="background:var(--sage-50);border:1px solid var(--sage-200);border-radius:var(--radius);padding:.65rem 1rem;font-size:.82rem;color:var(--sage-600);margin-bottom:1rem;">
+                🔒 This is a demo form — no real payment is processed.
+              </div>
+              <div class="form-group">
+                <label for="card_name">Name on Card <span class="req">*</span></label>
+                <input type="text" id="card_name" name="card_name" placeholder="Ada Lovelace" autocomplete="cc-name" required />
+              </div>
+              <div class="form-group">
+                <label for="card_number">Card Number <span class="req">*</span></label>
+                <input type="text" id="card_number" name="card_number" placeholder="1234 5678 9012 3456" autocomplete="cc-number" maxlength="19" required />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="card_expiry">Expiry (MM/YY) <span class="req">*</span></label>
+                  <input type="text" id="card_expiry" name="card_expiry" placeholder="12/27" autocomplete="cc-exp" maxlength="5" required />
+                </div>
+                <div class="form-group">
+                  <label for="card_cvv">CVV <span class="req">*</span></label>
+                  <input type="text" id="card_cvv" name="card_cvv" placeholder="123" autocomplete="cc-csc" maxlength="4" required />
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Place Order →</button>
+            <p class="text-muted text-center mt-2" style="font-size:.8rem;">
+              By placing your order you agree to our <a href="#">terms</a> and <a href="#">privacy policy</a>.
+            </p>
+
+          </form>
+        </div>
+
+        <!-- ORDER SUMMARY -->
+        <div style="position:sticky;top:80px">
+          <div class="card">
+            <div class="card-title">Your Order</div>
+            <div id="order-items" style="margin-bottom:1rem;"></div>
+            <hr class="divider" />
+            <table class="summary-table">
+              <tr><td>Subtotal</td><td id="order-subtotal">—</td></tr>
+              <tr><td>Shipping</td><td id="order-shipping">—</td></tr>
+              <tr class="total-row"><td>Total</td><td id="order-total">—</td></tr>
+            </table>
+          </div>
+
+          <div class="card mt-2" style="font-size:.85rem;color:var(--brown-mid);line-height:1.7">
+            <div style="display:flex;flex-direction:column;gap:.5rem;">
+              <span>🌱 Vegan &amp; cruelty-free</span>
+              <span>♻️ Plastic-free packaging</span>
+              <span>📦 Dispatched within 2–3 working days</span>
+              <span>↩️ 30-day returns</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding:1.5rem 0 0">
+        <span>© 2026 Lila's Candles.</span>
+        <span>Made with 🌿</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function renderOrderSummary() {
+      const cart = Store.getCart();
+      const products = Store.getProducts();
+
+      if (!cart.length) {
+        document.getElementById('order-items').innerHTML =
+          '<p class="text-muted text-small">Your cart is empty. <a href="shop.html">Go shopping →</a></p>';
+        return;
+      }
+
+      document.getElementById('order-items').innerHTML = cart.map(item => {
+        const p = products.find(x => x.id === item.id);
+        if (!p) return '';
+        return `
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.85rem;">
+            <div style="width:44px;height:44px;border-radius:var(--radius);background:${p.gradient};display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;">${p.emoji}</div>
+            <div style="flex:1;min-width:0">
+              <div style="font-family:var(--font-serif);font-size:.9rem;font-weight:600;color:var(--brown);">${p.name}</div>
+              <div style="font-size:.78rem;color:var(--brown-light);">Qty: ${item.qty}</div>
+            </div>
+            <div style="font-family:var(--font-serif);font-weight:600;">£${(p.price * item.qty).toFixed(2)}</div>
+          </div>
+        `;
+      }).join('');
+
+      const subtotal = Store.getCartTotal();
+      const shipping = subtotal >= 50 ? 0 : 4.99;
+      document.getElementById('order-subtotal').textContent = '£' + subtotal.toFixed(2);
+      document.getElementById('order-shipping').textContent = shipping === 0 ? 'Free 🌿' : '£' + shipping.toFixed(2);
+      document.getElementById('order-total').textContent = '£' + (subtotal + shipping).toFixed(2);
+    }
+
+    document.getElementById('checkout-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      Store.clearCart();
+      document.getElementById('checkout-main').style.display = 'none';
+      document.getElementById('order-success').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Format card number with spaces
+    document.getElementById('card_number').addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim().slice(0,19);
+    });
+
+    // Format expiry
+    document.getElementById('card_expiry').addEventListener('input', function() {
+      let v = this.value.replace(/\D/g,'');
+      if (v.length >= 2) v = v.slice(0,2) + '/' + v.slice(2,4);
+      this.value = v;
+    });
+
+    document.addEventListener('DOMContentLoaded', renderOrderSummary);
+  </script>
+</body>
+</html>

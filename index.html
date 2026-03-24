@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lila's Candles — Handmade Vegan Candles</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ADMIN RIBBON -->
+  <div id="admin-ribbon" class="admin-ribbon hidden">
+    🔑 Admin Mode active —
+    <a href="admin.html">Edit Products &amp; Content</a> &nbsp;·&nbsp;
+    <a href="#" id="admin-logout-btn">Sign Out</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">🕯️ Lila's <span>Candles</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="cart.html" class="nav-cart-btn" aria-label="View cart">
+          🛒 <span class="cart-badge hidden">0</span>
+        </a>
+        <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">🛒 Cart</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="hero-eyebrow">Handmade · Vegan · Sustainable</span>
+        <h1 data-editable="hero-title">Small-batch candles made with love &amp; the earth in mind</h1>
+        <p data-editable="hero-subtitle">Each candle is hand-poured in small batches using 100% natural soy and coconut wax, pure essential oils, and plastic-free packaging. Slow living, beautifully scented.</p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-outline-light btn-lg">Shop the Collection</a>
+          <a href="about.html" class="btn btn-outline-light">Our Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAND -->
+  <div style="background:var(--cream-100);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.75rem 0;">
+    <div class="container">
+      <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;font-size:.85rem;color:var(--brown-mid);">
+        <span>🌱 100% Vegan &amp; Cruelty-Free</span>
+        <span>🌿 Natural Soy &amp; Coconut Wax</span>
+        <span>♻️ Plastic-Free Packaging</span>
+        <span>✉️ Free shipping over £50</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Candles</h2>
+      <p class="section-subtitle">A few of our most-loved scents — explore the full range in the shop.</p>
+      <div class="products-grid" id="featured-products"></div>
+      <div class="text-center mt-4">
+        <a href="shop.html" class="btn btn-primary btn-lg">View All Candles →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="section" style="background:var(--cream-100);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="grid-2" style="align-items:center;gap:3rem">
+        <div style="font-size:8rem;text-align:center;line-height:1">🌿</div>
+        <div>
+          <span style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--terracotta);">Our Story</span>
+          <h2 style="margin:.5rem 0 1rem">Hi, I'm Lila</h2>
+          <p style="font-size:1rem;line-height:1.8;" data-editable="home-about-teaser">I started making candles in my kitchen five years ago, frustrated that most candles were full of synthetic fragrances and paraffin wax. I wanted something cleaner — for my home and for the planet. Now every candle I make is 100% vegan, uses only natural waxes and pure essential oils, and comes in packaging you can feel good about.</p>
+          <a href="about.html" class="btn btn-outline mt-3">Read My Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What People Are Saying</h2>
+      <p class="section-subtitle">Real reviews from real candle lovers.</p>
+      <div class="grid-3">
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The Sage &amp; Lavender is the most calming candle I've ever burned. My whole bedroom smells incredible and it lasts forever."</p>
+          <div class="testimonial-author">— Emma R., London</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I bought the Vanilla &amp; Sandalwood as a gift and immediately ordered one for myself. The wooden wick crackle is so cosy."</p>
+          <div class="testimonial-author">— James T., Edinburgh</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Finally a candle brand that actually cares about ingredients. Smells amazing, burns cleanly, and the packaging is beautiful."</p>
+          <div class="testimonial-author">— Priya M., Bristol</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-band">
+    <div class="container text-center">
+      <h2>Join the Slow Living Newsletter</h2>
+      <p>Seasonal scent guides, candle care tips, behind-the-scenes stories — and 10% off your first order.</p>
+      <form class="newsletter-form" style="margin:0 auto;" onsubmit="return false;">
+        <input type="email" placeholder="your@email.com" required />
+        <button type="submit" class="btn btn-terra">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">🕯️ Lila's Candles</div>
+          <p class="footer-tagline">Hand-poured vegan candles made with love in small batches. Natural wax, pure essential oils, plastic-free packaging.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="shop.html">All Candles</a></li>
+            <li><a href="cart.html">Your Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Info</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Lila</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lila's Candles. All rights reserved.</span>
+        <span>Made with 🌿 and a lot of patience</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Render 3 featured products (ids 2, 3, 4)
+    document.addEventListener('DOMContentLoaded', function () {
+      const featured = Store.getProducts().filter(p => [2, 3, 4].includes(p.id));
+      const grid = document.getElementById('featured-products');
+      grid.innerHTML = featured.map(p => `
+        <div class="product-card">
+          <div class="product-image" style="background:${p.gradient}">
+            ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+            ${p.emoji}
+          </div>
+          <div class="product-body">
+            <div class="product-tagline">${p.tagline}</div>
+            <div class="product-name">${p.name}</div>
+            <div class="product-desc">${p.description.slice(0, 100)}…</div>
+            <div class="product-footer">
+              <span class="product-price">£${p.price.toFixed(2)}</span>
+              <button class="btn btn-primary btn-sm" onclick="addFeatured(${p.id})">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    });
+
+    function addFeatured(id) {
+      Store.addToCart(id);
+      const p = Store.getProducts().find(x => x.id === id);
+      showToast((p ? p.name : 'Item') + ' added to cart 🛒');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Lila — Lila's Candles</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="admin-ribbon" class="admin-ribbon hidden">
+    🔑 Admin Mode active — <a href="admin.html">Dashboard</a> &nbsp;·&nbsp; <a href="#" id="admin-logout-btn">Sign Out</a>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">🕯️ Lila's <span>Candles</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="cart.html" class="nav-cart-btn">🛒 <span class="cart-badge hidden">0</span></a>
+        <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html">About</a>
+      <a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="background:linear-gradient(120deg,var(--sage-50) 0%,var(--cream) 100%);border-bottom:1px solid var(--border);padding:4rem 0 3rem;">
+    <div class="container">
+      <div class="grid-2" style="gap:3rem;align-items:center">
+        <div>
+          <span style="font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--terracotta);">Our Story</span>
+          <h1 style="margin:.5rem 0 1.25rem">Hi, I'm Lila 👋</h1>
+          <p style="font-size:1.05rem;line-height:1.8;color:var(--brown-mid)" data-editable="about-bio">
+            I started making candles five years ago at my kitchen table in Bristol, mostly out of frustration. Every candle I bought was packed with synthetic fragrance, petroleum-based paraffin wax, and came wrapped in plastic I'd immediately throw away. I wanted something better — for my home, for the air I was breathing, and for the planet.
+          </p>
+          <p style="font-size:1.05rem;line-height:1.8;color:var(--brown-mid);margin-top:1rem" data-editable="about-bio-2">
+            So I taught myself. I experimented for months with natural waxes, tested hundreds of essential oil combinations, and slowly found the scents that felt right — grounded, real, and beautifully simple. What started as a hobby for friends and family grew into something I couldn't stop.
+          </p>
+          <a href="shop.html" class="btn btn-primary mt-4">Shop the Collection</a>
+        </div>
+        <div style="font-size:10rem;text-align:center;line-height:1;filter:drop-shadow(0 8px 24px rgba(94,122,88,.25))">🌿</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What I believe in</h2>
+      <p class="section-subtitle">Every decision I make in this business comes back to these three things.</p>
+      <div class="grid-3" style="margin-top:2rem">
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <h3>100% Vegan</h3>
+          <p>No beeswax, no animal-derived ingredients of any kind. Every candle is fully vegan and cruelty-free — always.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🌍</div>
+          <h3>Sustainable Materials</h3>
+          <p>Natural soy and coconut wax, pure essential oils, cotton and wood wicks, and plastic-free packaging made from recycled materials.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤲</div>
+          <h3>Small Batch, Made by Hand</h3>
+          <p>Every single candle is poured, labelled, and packed by me. That means I can guarantee the quality and put real care into every order.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" style="background:var(--cream-100);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <h2 class="section-title">How a candle is made</h2>
+      <p class="section-subtitle">A peek behind the scenes at the process — slow, careful, and done with intention.</p>
+      <div class="grid-4" style="margin-top:2.5rem">
+        <div style="text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:.75rem">1️⃣</div>
+          <h4 style="margin-bottom:.5rem">Source</h4>
+          <p style="font-size:.875rem">Ethically sourced soy and coconut wax, UK-made wicks, and pure essential oils from trusted suppliers.</p>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:.75rem">2️⃣</div>
+          <h4 style="margin-bottom:.5rem">Blend</h4>
+          <p style="font-size:.875rem">Wax is melted slowly to the right temperature, then blended with a carefully measured essential oil combination.</p>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:.75rem">3️⃣</div>
+          <h4 style="margin-bottom:.5rem">Pour</h4>
+          <p style="font-size:.875rem">Each candle is hand-poured into its jar or pot, wick centred, and left to cure for a minimum of 48 hours.</p>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:.75rem">4️⃣</div>
+          <h4 style="margin-bottom:.5rem">Pack &amp; Send</h4>
+          <p style="font-size:.875rem">Every order is hand-packed with recycled tissue and kraft paper, then sent with a handwritten note.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container text-center" style="max-width:560px;margin:0 auto">
+      <div style="font-size:3rem;margin-bottom:1rem">🕯️</div>
+      <h2 style="margin-bottom:.75rem">Ready to find your scent?</h2>
+      <p style="font-size:1rem;color:var(--brown-mid);margin-bottom:1.75rem">Browse the full collection — each candle comes with free shipping on orders over £50 and a 30-day happiness guarantee.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+        <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">🕯️ Lila's Candles</div>
+          <p class="footer-tagline">Hand-poured vegan candles made with love in small batches.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Shop</div>
+          <ul class="footer-links">
+            <li><a href="shop.html">All Candles</a></li>
+            <li><a href="cart.html">Your Cart</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Info</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lila's Candles.</span>
+        <span>Made with 🌿</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

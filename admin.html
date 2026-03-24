@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Lila's Candles</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { background: var(--cream-100); }
+    .admin-input {
+      width: 100%;
+      padding: .5rem .75rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      font-size: .875rem;
+      color: var(--brown);
+      background: var(--surface);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .admin-input:focus {
+      outline: none;
+      border-color: var(--sage-400);
+      box-shadow: 0 0 0 3px rgba(125,155,118,.15);
+    }
+    textarea.admin-input { resize: vertical; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">🕯️ Lila's <span>Candles</span></a>
+        <a href="index.html" class="btn btn-secondary btn-sm">← Back to site</a>
+      </div>
+    </div>
+  </nav>
+
+  <div style="max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem">
+
+    <!-- LOGIN SECTION -->
+    <div id="login-section">
+      <div style="max-width:420px;margin:0 auto;padding-top:3rem">
+        <div class="admin-section">
+          <div class="admin-login-header">
+            <div class="lock-icon">🔑</div>
+            <h1 style="font-size:1.5rem;margin-bottom:.25rem">Owner Login</h1>
+            <p class="text-muted">Sign in to manage your products and content.</p>
+          </div>
+          <form id="admin-login-form">
+            <div class="form-group">
+              <label for="admin-username">Username</label>
+              <input type="text" id="admin-username" name="username" autocomplete="username"
+                placeholder="lila" required />
+            </div>
+            <div class="form-group">
+              <label for="admin-password">Password</label>
+              <input type="password" id="admin-password" name="password" autocomplete="current-password"
+                placeholder="••••••••" required />
+            </div>
+            <p id="login-error" style="color:#c0392b;font-size:.85rem;min-height:1.2rem;"></p>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+          </form>
+          <p class="text-muted text-center mt-3" style="font-size:.8rem;">
+            Default: username <code>lila</code> · password <code>candles2024</code><br>
+            (Change these in <code>js/admin.js</code> for real use)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD SECTION -->
+    <div id="dashboard-section" style="display:none">
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
+        <div>
+          <h1 style="font-size:1.6rem;margin-bottom:.25rem">Welcome back, Lila 🌿</h1>
+          <p class="text-muted">Manage your products and page content below. Changes save automatically.</p>
+        </div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+          <a href="index.html" class="btn btn-secondary btn-sm">View Site</a>
+          <button id="dashboard-logout-btn" class="btn btn-outline btn-sm">Sign Out</button>
+        </div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1rem;margin-bottom:2.5rem">
+        <a href="shop.html" class="dash-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;display:flex;flex-direction:column;gap:.4rem;text-decoration:none">
+          <span style="font-size:1.5rem">🛍️</span>
+          <span style="font-weight:700;font-size:.9rem;color:var(--brown)">Shop</span>
+          <span style="font-size:.78rem;color:var(--brown-light)">View live shop</span>
+        </a>
+        <a href="blog.html" class="dash-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;display:flex;flex-direction:column;gap:.4rem;text-decoration:none">
+          <span style="font-size:1.5rem">📝</span>
+          <span style="font-weight:700;font-size:.9rem;color:var(--brown)">Blog</span>
+          <span style="font-size:.78rem;color:var(--brown-light)">View journal</span>
+        </a>
+        <a href="contact.html" class="dash-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;display:flex;flex-direction:column;gap:.4rem;text-decoration:none">
+          <span style="font-size:1.5rem">✉️</span>
+          <span style="font-weight:700;font-size:.9rem;color:var(--brown)">Contact</span>
+          <span style="font-size:.78rem;color:var(--brown-light)">View form</span>
+        </a>
+        <a href="faq.html" class="dash-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;display:flex;flex-direction:column;gap:.4rem;text-decoration:none">
+          <span style="font-size:1.5rem">❓</span>
+          <span style="font-weight:700;font-size:.9rem;color:var(--brown)">FAQ</span>
+          <span style="font-size:.78rem;color:var(--brown-light)">View page</span>
+        </a>
+      </div>
+
+      <!-- PRODUCT EDITOR -->
+      <div class="card" style="margin-bottom:1.5rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)">
+          <div class="card-title" style="margin:0;padding:0;border:none">🕯️ Edit Products</div>
+          <button id="reset-products-btn" class="btn btn-secondary btn-sm">Reset to Defaults</button>
+        </div>
+        <p class="text-muted" style="font-size:.82rem;margin-bottom:1.25rem;">Edit product names, taglines, prices, descriptions, and badges below. Changes save as soon as you leave each field.</p>
+        <div id="product-editor"></div>
+      </div>
+
+      <!-- PAGE CONTENT EDITOR -->
+      <div class="card" style="margin-bottom:1.5rem">
+        <div class="card-title">📄 Edit Page Content</div>
+        <p class="text-muted" style="font-size:.82rem;margin-bottom:1.25rem;">Update key text across the site. Changes save as soon as you leave each field and will appear on the live pages immediately.</p>
+        <div id="content-editor"></div>
+      </div>
+
+      <!-- INLINE EDITING NOTE -->
+      <div class="card" style="background:var(--sage-50);border-color:var(--sage-200)">
+        <div class="card-title" style="border-color:var(--sage-200)">✏️ Inline Editing</div>
+        <p style="font-size:.875rem;color:var(--sage-700);line-height:1.7;margin-bottom:.75rem">
+          While you're signed in, you can also edit content directly on any page. Look for elements with a green dashed outline — click them to edit in place. Changes are saved automatically.
+        </p>
+        <p style="font-size:.875rem;color:var(--sage-700);line-height:1.7">
+          The admin ribbon at the top of every page links back here and lets you sign out.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

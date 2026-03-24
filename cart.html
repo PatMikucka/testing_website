@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart — Lila's Candles</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="admin-ribbon" class="admin-ribbon hidden">
+    🔑 Admin Mode active — <a href="admin.html">Dashboard</a> &nbsp;·&nbsp; <a href="#" id="admin-logout-btn">Sign Out</a>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">🕯️ Lila's <span>Candles</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="cart.html" class="nav-cart-btn">🛒 <span class="cart-badge hidden">0</span></a>
+        <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html">About</a>
+      <a href="blog.html">Blog</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Your Cart</h1>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <div class="container">
+      <div id="cart-empty" class="empty-state" style="display:none">
+        <div class="empty-icon">🛒</div>
+        <h3>Your cart is empty</h3>
+        <p class="text-muted">Looks like you haven't added anything yet.</p>
+        <a href="shop.html" class="btn btn-primary mt-3">Browse Candles</a>
+      </div>
+
+      <div id="cart-content" style="display:none">
+        <div class="grid-2" style="gap:2rem;align-items:start">
+
+          <!-- CART ITEMS -->
+          <div class="card" style="padding:0;overflow:hidden">
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th colspan="2">Product</th>
+                  <th>Qty</th>
+                  <th style="text-align:right">Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cart-rows"></tbody>
+            </table>
+          </div>
+
+          <!-- ORDER SUMMARY -->
+          <div>
+            <div class="card">
+              <div class="card-title">Order Summary</div>
+              <table class="summary-table">
+                <tr>
+                  <td>Subtotal</td>
+                  <td id="cart-subtotal">£0.00</td>
+                </tr>
+                <tr>
+                  <td>Shipping</td>
+                  <td id="cart-shipping">Calculated at checkout</td>
+                </tr>
+                <tr class="total-row">
+                  <td>Total</td>
+                  <td id="cart-total">£0.00</td>
+                </tr>
+              </table>
+              <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:.6rem;">
+                <a href="checkout.html" class="btn btn-primary btn-block btn-lg">Proceed to Checkout →</a>
+                <a href="shop.html" class="btn btn-secondary btn-block">Continue Shopping</a>
+              </div>
+              <p class="text-muted text-center mt-2" style="font-size:.78rem;">Free shipping on orders over £50 🌿</p>
+            </div>
+
+            <div class="card mt-3" style="background:var(--sage-50);border-color:var(--sage-200);">
+              <p style="font-size:.875rem;color:var(--sage-600);line-height:1.65;">
+                🌱 <strong>You're shopping sustainably.</strong> All orders come in recycled, plastic-free packaging.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding:1.5rem 0 0">
+        <span>© 2026 Lila's Candles.</span>
+        <span>Made with 🌿</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="js/store.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function renderCart() {
+      const cart = Store.getCart();
+      const products = Store.getProducts();
+      const empty = document.getElementById('cart-empty');
+      const content = document.getElementById('cart-content');
+
+      if (!cart.length) {
+        empty.style.display = 'block';
+        content.style.display = 'none';
+        return;
+      }
+
+      empty.style.display = 'none';
+      content.style.display = 'block';
+
+      const rows = cart.map(item => {
+        const p = products.find(x => x.id === item.id);
+        if (!p) return '';
+        const line = p.price * item.qty;
+        return `
+          <tr>
+            <td style="width:60px">
+              <div class="cart-item-img" style="background:${p.gradient}">${p.emoji}</div>
+            </td>
+            <td>
+              <div class="cart-item-name">${p.name}</div>
+              <div class="cart-item-sub">${p.tagline}</div>
+            </td>
+            <td>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(${p.id}, ${item.qty - 1})">−</button>
+                <span class="qty-input">${item.qty}</span>
+                <button class="qty-btn" onclick="changeQty(${p.id}, ${item.qty + 1})">+</button>
+              </div>
+            </td>
+            <td style="text-align:right">
+              <span class="cart-price">£${line.toFixed(2)}</span>
+            </td>
+            <td>
+              <button class="btn-icon" onclick="removeItem(${p.id})" title="Remove">✕</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('cart-rows').innerHTML = rows;
+
+      const subtotal = Store.getCartTotal();
+      const shipping = subtotal >= 50 ? 'Free 🌿' : '£4.99';
+      const total = subtotal + (subtotal >= 50 ? 0 : 4.99);
+
+      document.getElementById('cart-subtotal').textContent = '£' + subtotal.toFixed(2);
+      document.getElementById('cart-shipping').textContent = shipping;
+      document.getElementById('cart-total').textContent = '£' + total.toFixed(2);
+    }
+
+    function changeQty(id, qty) {
+      Store.updateQty(id, qty);
+      renderCart();
+    }
+
+    function removeItem(id) {
+      Store.removeFromCart(id);
+      showToast('Item removed from cart');
+      renderCart();
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCart);
+    window.addEventListener('cartUpdated', renderCart);
+  </script>
+</body>
+</html>
