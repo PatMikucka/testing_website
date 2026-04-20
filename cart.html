@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Cart — Lila's Candles</title>
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- HJ Snippet-->
+
+  <script src="https://t.contentsquare.net/uxa/14abb6b8de1a0.js"></script>
+  
 </head>
 <body>
 
@@ -187,5 +192,136 @@
     document.addEventListener('DOMContentLoaded', renderCart);
     window.addEventListener('cartUpdated', renderCart);
   </script>
+
+  <!-- LiveChat Snippet-->
+ <!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 19615159;
+    window.__lc.integration_name = "manual_restart_trial";
+    window.__lc.product_name = "livechat";
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/19615159/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
+
+<!-- LC-HJ Script-->
+
+  (function () {
+
+    // ─── CONFIG ──────────────────────────────────────────────────────────────
+    var config = {
+        debug: true // Set to false once. you've verified events are firing
+    };
+    // ─────────────────────────────────────────────────────────────────────────
+
+    function log(message, data) {
+        if (!config.debug) return;
+        if (data !== undefined) {
+            console.log('[LC→HJ] ' + message, data);
+        } else {
+            console.log('[LC→HJ] ' + message);
+        }
+    }
+
+    // ─── READINESS CHECK ─────────────────────────────────────────────────────
+    // Both Hotjar and LiveChat load asynchronously.
+    // We poll every 250ms until both are available before
+    // attaching any listeners.
+    function waitForBoth(callback) {
+        var attempts = 0;
+        var maxAttempts = 40;  // 40 * 250ms = 10 seconds max wait
+
+        var interval = setInterval(function () {
+            attempts++;
+
+            var hjReady = typeof window.hj === 'function';
+            var lcReady = typeof window.LiveChatWidget === 'object';
+
+            if (hjReady && lcReady) {
+                clearInterval(interval);
+                log('Both Hotjar and LiveChat are ready. Attaching listeners.');
+                callback();
+            } else if (attempts >= maxAttempts) {
+                clearInterval(interval);
+                log('Time out waiting for Hotjar or LiveChat.', {
+                    hotjar: hjReady,
+                    livechat: lcReady
+                });
+            }
+        }, 250);
+    }
+    // ─────────────────────────────────────────────────────────────────────────
+
+    // ─── STATE ───────────────────────────────────────────────────────────────
+    // Tracks whether first chat has been recorded and start time
+    var chatTracked = false;
+    var chatStartTime = null;
+    // ─────────────────────────────────────────────────────────────────────────
+
+    // ─── LISTENERS ───────────────────────────────────────────────────────────
+    function attachListeners() {
+
+        // 1. GREETING DISPLAYED
+        // Fires when LiveChat shows an automated greeting to the visitor
+        LiveChatWidget.on('greeting_displayed', function (data) {
+            log('Greeting displayed', data);
+            window.hj('event', 'lc_greeting_fired');
+        });
+
+        // 2. WIDGET MINIMISED
+        // Fires when the visitor minimises the chat window
+        LiveChatWidget.on('visibility_changed', function (data) {
+            if (data.visibility === 'minimized') {
+                log('Widget minimised');
+                window.hj('event', 'lc_widget_minimized');
+            }
+        });
+
+        // 3. CUSTOMER STATUS CHANGED
+        // Handles chat engaged, chat ended, and duration calculation
+        LiveChatWidget.on('customer_status_changed', function (data) {
+
+            if (data.status === 'chatting' && !chatTracked) {
+                chatStartTime = Date.now();
+                log('Chat engaged');
+                window.hj('event', 'lc_chat_engaged');
+            }
+
+            if (data.status === 'browsing' && chatStartTime !== null && !chatTracked) {
+                var durationSec = Math.round((Date.now() - chatStartTime) / 1000);
+                log('Chat ended. Duration: ' + durationSec + 's');
+                window.hj('event', 'lc_chat_ended');
+                window.hj('identify', null, {
+                    'lc_chat_duration_sec': durationSec
+                });
+                chatStartTime = null;
+                chatTracked = true;
+            }
+        });
+
+        // 4. RATING SUBMITTED
+        // Fires when the visitor submits a chat rating
+        LiveChatWidget.on('rating_submitted', function (value) {
+            if (chatTracked) return;
+            log('Rating submitted', { value: value });
+            window.hj('event', 'lc_rating_' + value);
+            window.hj('identify', null, {
+                'lc_chat_rating': value
+            });
+        });
+
+        log('All listeners attached.');
+    }
+    // ─────────────────────────────────────────────────────────────────────────
+
+    // ─── INIT ────────────────────────────────────────────────────────────────
+    waitForBoth(function () {
+        attachListeners();
+    });
+    // ─────────────────────────────────────────────────────────────────────────
+
+  })();
+
 </body>
 </html>
